@@ -1,0 +1,83 @@
+[2020-12-10T19:29:12.429Z] Running create operation on 100.127.146.103
+[2020-12-10T19:29:12.430Z] Script arguments:
+node_uuid = e710509d-a521-44c1-96a6-c89e5f33a48f
+os_type = windows
+max_connection_retries = 10
+ansible_groups = win
+operation = create
+node_host = 100.127.146.103
+node_user = user
+use_sudo = true
+ansible_inventory_path = /etc/ansible/hosts
+provisioning_playbook_paths = /home/ansibleoss/cloudservices/aws/SIC2/automation/Windows_prep/windowsprep.yml
+node_password = ***REDACTED***
+ansible_host_variables = {"agents_install":"false","domain_oupath":"OU=AWS_OU,DC=PRDTSTRT,DC=Local","domain":"PRDTSTRT.LOCAL","hostname":"CDTAIOAVMGIT11S","accountId":"CAMC-CDT-WRK-TEST-DC","local_admin_password":"letsFixThis$5!","region":"us-west-2","applications":{"commvault":{"install":"false"},"iis":{"install":"false"},"mssql":{"install":"true","version":"latest"},"agents":{"install":"false"}},"drives":{"disk1":{"DriveLetter":"E","DiskId":1,"Size":"100","FSLabel":"appData","FSFormat":"NTFS","volumeId":"["5387e406-912c-4a42-b754-46e1c05c5024"]"},"disk2":{"DriveLetter":"L","DiskId":2,"Size":"100","FSLabel":"Logs","FSFormat":"NTFS","volumeId":"["e1b491e2-488a-4945-9a61-a4edef2c771a"]"},"disk3":{"DriveLetter":"P","DiskId":3,"Size":"100","FSLabel":"Backups","FSFormat":"NTFS","volumeId":"["81d7f5ef-77ba-4fbc-92b1-8e38e80b1de2"]"},"disk4":{"DriveLetter":"S","DiskId":4,"Size":"100","FSLabel":"SQLData","FSFormat":"NTFS","volumeId":"["a3ae1492-1021-4967-9ea5-350499f68d18"]"},"disk5":{"DriveLetter":"T","DiskId":5,"Size":"10","FSLabel":"Temp","FSFormat":"NTFS","volumeId":"["51be53bd-02a3-4a84-83a9-6ded1f6b7be9"]"}}}
+/usr/bin/flock
+[2020-12-10T19:29:12.435Z] Use Sudo: true
+[2020-12-10T19:29:12.436Z] script path var/tmp/vmware/provider/user_defined_script/e710509d-a521-44c1-96a6-c89e5f33a48f
+[2020-12-10T19:29:12.437Z] Checking if the inventory file '/etc/ansible/hosts' exists
+[2020-12-10T19:29:12.440Z] Adding 100.127.146.103 to inventory /etc/ansible/hosts under group win
+[2020-12-10T19:29:12.442Z] Obtained an exclusive lock on /etc/ansible/.vra_inventory_lock_hosts to update inventory
+localhost | CHANGED => {
+    "changed": true,
+    "gid": 1502,
+    "group": "cloudassembly",
+    "mode": "0664",
+    "msg": "option added",
+    "owner": "root",
+    "path": "/etc/ansible/hosts",
+    "size": 160,
+    "state": "file",
+    "uid": 0
+}
+[2020-12-10T19:29:14.217Z] Dropped the lock on /etc/ansible/.vra_inventory_lock_hosts after updating inventory
+[2020-12-10T19:29:14.238Z] Adding ansible_user to /etc/ansible/host_vars/100.127.146.103/vra_host_vars.yml during create operation
+localhost | CHANGED => {
+    "backup": "",
+    "changed": true,
+    "msg": "line added"
+}
+[2020-12-10T19:29:15.993Z] Adding ansible_password to /etc/ansible/host_vars/100.127.146.103/vra_host_vars.yml during create operation
+localhost | CHANGED => {
+    "backup": "",
+    "changed": true,
+    "msg": "line added"
+}
+[2020-12-10T19:29:17.813Z] Adding vault_ansible_password to /etc/ansible/host_vars/100.127.146.103/vault.yml during create operation
+localhost | CHANGED => {
+    "backup": "",
+    "changed": true,
+    "msg": "line added"
+}
+[2020-12-10T19:29:19.594Z] Checking if vault_password_file is set
+[2020-12-10T19:29:19.614Z] vault_password is set in /etc/ansible/ansible.cfg
+[2020-12-10T19:29:20.414Z] Adding ansible_connection to /etc/ansible/host_vars/100.127.146.103/vra_host_vars.yml during create operation
+localhost | CHANGED => {
+    "backup": "",
+    "changed": true,
+    "msg": "line added"
+}
+[2020-12-10T19:29:22.190Z] Adding host variables to /etc/ansible/host_vars/100.127.146.103/vra_user_host_vars_e710509d-a521-44c1-96a6-c89e5f33a48f.yml during
+      create operation
+localhost | CHANGED => {
+    "backup": "",
+    "changed": true,
+    "msg": "line added"
+}
+[2020-12-10T19:29:25.887Z] Playbook /home/ansibleoss/cloudservices/aws/SIC2/automation/Windows_prep/windowsprep.yml run failed
+[2020-12-10T19:29:25.888Z] Removing 100.127.146.103 from /etc/ansible/hosts under win group
+[2020-12-10T19:29:25.890Z] Obtained an exclusive lock on /etc/ansible/.vra_inventory_lock_hosts to update inventory
+localhost | CHANGED => {
+    "changed": true,
+    "gid": 1502,
+    "group": "cloudassembly",
+    "mode": "0664",
+    "msg": "option changed",
+    "owner": "root",
+    "path": "/etc/ansible/hosts",
+    "size": 144,
+    "state": "file",
+    "uid": 0
+}
+[2020-12-10T19:29:27.652Z] Dropped the lock on /etc/ansible/.vra_inventory_lock_hosts after updating inventory
+[2020-12-10T19:29:27.673Z] /home/ansibleoss/cloudservices/aws/SIC2/automation/Windows_prep/windowsprep.yml did not finish successfully and has errors in the ansible-playbook run. Refer to logs at var/tmp/vmware/provider/user_defined_script/e710509d-a521-44c1-96a6-c89e5f33a48f on Ansible Control Machine for more details.

@@ -1,0 +1,22 @@
+ERROR! Syntax Error while loading YAML.
+  expected ',' or '}', but got '<scalar>'
+
+The error appears to be in '/etc/ansible/host_vars/100.127.146.103/vra_user_host_vars_e710509d-a521-44c1-96a6-c89e5f33a48f.yml': line 1, column 490, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+{"agents_install":"false","domain_oupath":"OU=AWS_OU,DC=PRDTSTRT,DC=Local","domain":"PRDTSTRT.LOCAL","hostname":"CDTAIOAVMGIT11S","accountId":"CAMC-CDT-WRK-TEST-DC","local_admin_password":"letsFixThis$5!","region":"us-west-2","applications":{"commvault":{"install":"false"},"iis":{"install":"false"},"mssql":{"install":"true","version":"latest"},"agents":{"install":"false"}},"drives":{"disk1":{"DriveLetter":"E","DiskId":1,"Size":"100","FSLabel":"appData","FSFormat":"NTFS","volumeId":"["5387e406-912c-4a42-b754-46e1c05c5024"]"},"disk2":{"DriveLetter":"L","DiskId":2,"Size":"100","FSLabel":"Logs","FSFormat":"NTFS","volumeId":"["e1b491e2-488a-4945-9a61-a4edef2c771a"]"},"disk3":{"DriveLetter":"P","DiskId":3,"Size":"100","FSLabel":"Backups","FSFormat":"NTFS","volumeId":"["81d7f5ef-77ba-4fbc-92b1-8e38e80b1de2"]"},"disk4":{"DriveLetter":"S","DiskId":4,"Size":"100","FSLabel":"SQLData","FSFormat":"NTFS","volumeId":"["a3ae1492-1021-4967-9ea5-350499f68d18"]"},"disk5":{"DriveLetter":"T","DiskId":5,"Size":"10","FSLabel":"Temp","FSFormat":"NTFS","volumeId":"["51be53bd-02a3-4a84-83a9-6ded1f6b7be9"]"}}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^ here
+We could be wrong, but this one looks like it might be an issue with
+unbalanced quotes. If starting a value with a quote, make sure the
+line ends with the same set of quotes. For instance this arbitrary
+example:
+
+    foo: "bad" "wolf"
+
+Could be written as:
+
+    foo: '"bad" "wolf"'
+[2020-12-10T19:29:27.673Z] /home/ansibleoss/cloudservices/aws/SIC2/automation/Windows_prep/windowsprep.yml did not finish successfully and has errors in the ansible-playbook run. Refer to logs at var/tmp/vmware/provider/user_defined_script/e710509d-a521-44c1-96a6-c89e5f33a48f on Ansible Control Machine for more details.
